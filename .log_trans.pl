@@ -35,7 +35,7 @@ sub filter {
     } elsif ($t =~ /^\d-\d-\d{4}/) {
       $t = Time::Piece->strptime($d->{history}[0]->{time}, "%d-%m-%Y %H:%M:%S");
     } else {
-      $t = Time::Piece->strptime($d->{history}[0]->{time}, "%Y/%m/%d %H:%M:%S");
+      $t = Time::Piece->strptime($d->{history}[0]->{time}, "%Y-%m-%dT%H:%M:%S");
     }
   }; 
   if ($@) {
