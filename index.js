@@ -21,7 +21,7 @@ http.createServer(function(req, res) {
         location: JSON.stringify(err.record.status.location.replace(/\?.+/, ""), null, "  "),
         history: JSON.stringify(err.record.history, null, "  ")
       };
-      res.write("<tr><td>{{rank}}</td><td>{{count}}</td><td><pre>{{location}}</pre></td><td><pre>{{error}}</pre><a href=\"javascript:void(0)\" onclick=\"document.getElementById('{{digest}}_history').style.display = 'table-cell'\">history</a></td><td id=\"{{digest}}_history\" style=\"display: none\"><pre>{{history}}</pre><a href=\"javascript:void(0)\" onclick=\"this.parentNode.style.display = 'none'\">close</a></td></tr>".replace(/{{(\w+)}}/g, function(m, m1) {
+      res.write("<tr><td style=\"font-size: 30px;vertical-align:top\"><a name=\"{{rank}}\" href=\"#{{rank}}\">{{rank}}</a></td><td>{{count}}</td><td><pre>{{location}}</pre></td><td><pre>{{error}}</pre><a href=\"javascript:void(0)\" onclick=\"document.getElementById('{{digest}}_history').style.display = 'table-cell'\">history</a></td><td id=\"{{digest}}_history\" style=\"display: none\"><pre>{{history}}</pre><a href=\"javascript:void(0)\" onclick=\"this.parentNode.style.display = 'none'\">close</a></td></tr>".replace(/{{(\w+)}}/g, function(m, m1) {
         return param[m1] || "";
       }));
     });
