@@ -7,7 +7,6 @@ binmode STDOUT, ":utf8";
 binmode STDERR, ":utf8";
 
 use Digest::MD5 qw/md5_hex/;
-use Data::Dumper;
 
 use Time::Piece;
 
@@ -17,7 +16,7 @@ my $json = JSON->new;
 my @data;
 while(<>) {
   /^-$/ and next;
-  my $d = $json->utf8->decode($_);
+  my $d = $json->decode($_);
   filter($d) or next;
   push @data, transform($d);
 }
